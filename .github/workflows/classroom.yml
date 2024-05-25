@@ -40,12 +40,12 @@ jobs:
           echo "WebApp Server PID=$!" >> $GITHUB_ENV
         env:
           MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
-      - name: Espera que el WebApp esté levantado
-        run: |
-          timeout 60 sh -c 'until curl --output /dev/null --silent --head --fail http://localhost:8080; do
-            printf "."
-            sleep 5
-          done'
+      # - name: Espera que el WebApp esté levantado
+      #   run: |
+      #     timeout 60 sh -c 'until curl --output /dev/null --silent --head --fail http://localhost:8080; do
+      #       printf "."
+      #       sleep 5
+      #     done'
       - name: Evaluador de Entrega 1
         id: evaluator
         uses: education/autograding-command-grader@v1
